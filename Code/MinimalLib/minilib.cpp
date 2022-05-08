@@ -494,6 +494,12 @@ JSMol *get_qmol(const std::string &input) {
   return new JSMol(mol);
 }
 
+JSMol *get_mol_from_inchi(const std::string &input) const {
+  ExtraInchiReturnValues rv;
+  RWMol *mol = InchiToMol(input, rv, true, true)
+  return new JSMol(mol);
+}
+
 std::string version() { return std::string(rdkitVersion); }
 
 void prefer_coordgen(bool useCoordGen) {

@@ -256,4 +256,5 @@ EMSCRIPTEN_BINDINGS(RDKit_minimal) {
            allow_raw_pointers());
   function("get_mol_copy", &get_mol_copy, allow_raw_pointers());
   function("get_qmol", &get_qmol, allow_raw_pointers());
+  function("get_mol_from_inchi", &get_mol_from_inchi, allow_raw_pointers());
 }
