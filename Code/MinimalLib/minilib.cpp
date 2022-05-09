@@ -494,9 +494,9 @@ JSMol *get_qmol(const std::string &input) {
   return new JSMol(mol);
 }
 
-JSMol *get_mol_from_inchi(const std::string &input) const {
+JSMol *get_mol_from_inchi(const std::string &input) {
   ExtraInchiReturnValues rv;
-  RWMol *mol = InchiToMol(input, rv, true, true)
+  RWMol *mol = InchiToMol(input, rv, true, true);
   return new JSMol(mol);
 }
 
