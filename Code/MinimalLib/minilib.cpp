@@ -34,6 +34,7 @@
 #include <GraphMol/MolTransforms/MolTransforms.h>
 #include <Geometry/Transform3D.h>
 #include <DataStructs/BitOps.h>
+#include <GraphMol/MolStandardize/MolStandardize.h>
 
 #include <INCHI-API/inchi.h>
 
@@ -497,6 +498,11 @@ JSMol *get_qmol(const std::string &input) {
 JSMol *get_mol_from_inchi(const std::string &input) {
   ExtraInchiReturnValues rv;
   RWMol *mol = InchiToMol(input, rv, true, true);
+  return new JSMol(mol);
+}
+
+JSMol *get_canonical_tautomer(const JSMol &other) {
+  RWMol *mol = MolStandardize::canonicalTautomer(*other.d_mol);
   return new JSMol(mol);
 }
 

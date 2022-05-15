@@ -139,5 +139,6 @@ JSMol *get_mol_from_pickle(const std::string &pkl);
 JSMol *get_mol_copy(const JSMol &other);
 JSMol *get_qmol(const std::string &input);
 JSMol *get_mol_from_inchi(const std::string &input);
+JSMol *get_canonical_tautomer(const JSMol &other);
 std::string version();
 void prefer_coordgen(bool prefer);
