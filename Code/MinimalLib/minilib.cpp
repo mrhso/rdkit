@@ -502,7 +502,11 @@ JSMol *get_mol_from_inchi(const std::string &input) {
 }
 
 JSMol *get_canonical_tautomer(const JSMol &other) {
-  RWMol *mol = MolStandardize::canonicalTautomer(other.d_mol.get());
+  MolStandardize::CleanupParameters params;
+  params.tautomerRemoveSp3Stereo = false;
+  params.tautomerRemoveBondStereo = false;
+  params.tautomerRemoveIsotopicHs = false;
+  RWMol *mol = MolStandardize::canonicalTautomer(other.d_mol.get(), params);
   return new JSMol(mol);
 }
 
